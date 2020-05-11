@@ -328,7 +328,7 @@ $$ \iint_{M_x} f(x,y)\dif x\dif y = \int_a^b \left( \int_{\varphi_1}^{\varphi_2}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=10cm]{jordan_sit.png}
+    \includegraphics[width=6cm]{jordan_sit.png}
     \caption{Jádro řádu n (tmavší šedá) a obal řádu n (světlejší šedá) množiny A (čtverce jádra jsou zároveň čtverci obalu).}
     \label{fig:jordan}
 \end{figure}
@@ -341,10 +341,17 @@ $$ \iint_{M_x} f(x,y)\dif x\dif y = \int_a^b \left( \int_{\varphi_1}^{\varphi_2}
     \item $A\subseteq B\; \rightarrow \; \lambda(A) \leq \lambda(B)$ menší množina, menší obsah
     \item $A\cap B = \emptyset\; \rightarrow \; \lambda(A\cup B ) \lambda(A) + \lambda(B)$
 \end{itemize}
-
 Nadefinuje se síť řádu $n$, kde \emph{čím větší $n$ tím menší čtverečky}. Pak j-tý a k-tý čtverec je brán jako
 $$ Q_{j,k}^n = \lbrace [x,y]\in \R^2: \frac{j}{2^n} \leq x \leq \frac{j+1}{2^n}, \frac{k}{2^n} \leq y \leq \frac{k+1}{2^n}\rbrace $$
-Jelikož má jeden čtverec stranu $\frac{1}{2^n}$ tak potom jeho míra, \emph{obsah} je:
+Jelikož má jeden čtverec stranu $\frac{1}{2^n}$ tak potom jeho míra, \emph{obsah}, je:
 $$\lambda(Q_{j,k}^n ) = \left(\frac{1}{2^n}\right)^2$$
+Sjednocení čtverců je nazýváno \textbf{elementární množinou} $M = \cup_{j,k\in I} Q_{j,k}^n$.
+Definujem \textbf{jádro a obal množiny} $A$. 
+\begin{itemize}
+    \item Jádro jsou všechny čtverečky, které jsou celé v množině A.
+    \item Obal jsou všechny čtverečky, které jsou od množiny vzdáleny 0. Mají prázdný průnik s uzávěrem.
+\end{itemize} 
+$A^\circ$ -- vnitřek, $\bar A$ -- uzávěr
+$$ V_n (A) = \cup \lbrace  Q^n: Q_{j,k}^n \subseteq A^\circ \rbrace $$
 
 \end{document}
