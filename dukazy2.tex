@@ -27,7 +27,7 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\pard}[2]{\frac{\partial #1 }{\partial #2 }}
 \newcommand{\der}[2]{\frac{\mathrm{d} #1 }{\mathrm{d} #2 }}
-\newcommand{\e}{\mathrm{e}}
+\newcommand{\e}{\mathrm{e}} %euler
 \newcommand{\V}{\mathbb{V}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
@@ -351,7 +351,118 @@ Definujem \textbf{jádro a obal množiny} $A$.
     \item Jádro jsou všechny čtverečky, které jsou celé v množině A.
     \item Obal jsou všechny čtverečky, které jsou od množiny vzdáleny 0. Mají prázdný průnik s uzávěrem.
 \end{itemize} 
-$A^\circ$ -- vnitřek, $\bar A$ -- uzávěr
+$A^\circ$ -- vnitřek, $\bar A$ -- uzávěr, $\partial A$ -- hranice
 $$ V_n (A) = \cup \lbrace  Q^n: Q_{j,k}^n \subseteq A^\circ \rbrace $$
+$$ W_n (A) = \cup \lbrace  Q^n: \bar A \cap Q_n \neq \emptyset \rbrace $$
+\begin{small}
+Vlastnosti:
+\begin{itemize}
+    \item jádro $\subseteq$ množina $\subseteq$ obal
+    \item míra hranice = obal - jádro
+    \item čím vyšší n tím menší obal a tím větší jádro
+\end{itemize}
+\end{small}
+\begin{itemize}
+    \item Posloupnosti  $\lbrace\lambda(V_n)  \rbrace_{n=0}^\infty$ mají konečnou limitu
+\end{itemize}
+\paragraph{Vnější a vnitřní Jordanova míra} \emph{Největší jádro a nejmenší obal.} Vnitřní míra $\lambda_*$ a vnější míra $\lambda^*$ jsou definovány jako 
+$$ \lambda_*(A) = \lim_{n\to\infty} \lambda(V_n) \quad \lambda^*(A) = \lim_{n\to\infty} \lambda(W_n) $$ 
+Pokud platí $  \lambda_*(A) = \lambda^*(A) = \lambda (A)$, pak číslo $\lambda (A)$ je Jordanovou mírou množiny A. 
+
+\subparagraph{Vlastnosti:} 
+\begin{itemize}
+    \item $\lambda^* = 0 \Rightarrow \lambda = 0$
+    \item \dots
+\end{itemize}
+
+Dále se čtvereček $C_{jk}^n$ nazve \emph{čtvercovou množinou}, dohromady pokrývají celý prostor $\R^2$ a jsou vzájemně disjuktní. Přičemž každá čtvercová množina má konst. míru.
+
+Množina $M$ se pokryje čtvercovými množinami $P$, které nemají prázdný průnik s $M$. Míra množiny pak je
+$$\lambda (M) = \sum_{i=1}^m \lambda (P_i^n)$$
+Následně se vytvoří horní a dolní hodnota na čtverečku 
+$$ h_i= \inf\lbrace f(x,y); [x,y]\in P_i^n  \rbrace, \qquad H_i= \sup\lbrace f(x,y); [x,y]\in P_i^n \rbrace$$
+a horní a dolní součet, řádu $n$
+$$ s_n(M,f) = \sum_{i=1}^m h_i \lambda(P_i^n) \qquad  S_n(M,f) = \sum_{i=1}^m H_i \lambda(P_i^n). $$
+
+\paragraph{Jordanovská definice dvojného Riemanova integrálu} nadefinuje se dolní a horní integrál funkce 
+$$ \iint_{\underline{M}} f(x,y) \dif x \dif y = \lim_{n\to\infty}s_n \qquad \iint_{\overline{M}} f(x,y) \dif x \dif y = \lim_{n\to\infty} S_n $$
+Pokud se jednotlivé integrály sobě rovnají, nazveme společnou hodnotu dvojným Riemanovým integrálem $f$ přes množinu $M$.
+
+\subparagraph{Integrální věta o stř. hodnotě} \emph{pokud se jedná o součin dvou funkcí pak jednu funkci lze nahradit její střední hodnotou.}
+Pokud $\forall [x,y]\in M$ platí $0\leq g(x,y)$ a $a<f(x,y)<b$ pak existuje $\mu$
+$$ \iint_M f(x,y)g(x,y) = \mu\iint_M g(x,y) $$
+
+\subparagraph{Skoro všude} = \emph{všude krom množin míry nula}.
+
+\paragraph{int skoro všude} pokud skoro všude platí $g(x,y)=f(x,y)$ pak 
+$$ \iint f(x,y) = \iint g(x,y)$$
+
+\paragraph{Podmínka pro integrál}
+Pokdu je funkce na $M$ ohraničená a skoro všude spojitá, pak je integrovatelná.
+
+\section{Trojný integrál}
+Obdoba dvojného, jen přidat rozměr, platí také fubiniho věta.
+
+\section{Substituce}
+2-funkce $\F: \R^2 \to \R^2$ je na $M$ regulární pokud $J_\F \neq 0$. 
+Pokud je $\F$ regulární a M, kde $M \subseteq \Omega$, $\Omega$ -- otevřená množina, pak
+$$ \iint_{M} f(x,y) \dif x \dif y =  \iint_{M^*} f(\F(u,v)) |J_\F (u,v)| \dif x \dif y$$
+
+Používané tranformace:
+\begin{itemize}
+    \item Translace $x=u+a$, $y = v + b$, pak $J(u,v) = 1$
+    \item dilatace $x = au$, $y=bu$ pak $J(u,v) = ab$
+    \item Zavedení polárních souřadnic. $x = \rho\cos\varphi$, $y=\rho\sin\varphi$ pak $J(\rho, \varphi) = \rho $ 
+    \item Zavedení eliptických souřadnic. $x = a\rho\cos\varphi$, $y=b\rho\sin\varphi$ pak $J(\rho, \varphi) = ab\rho $ 
+\end{itemize}
+Analogicky pro trojné integrály
+\begin{itemize}
+    \item Válcové souřadnice $x = \rho\cos\varphi$, $y=\rho\sin\varphi$ a $z=z$ pak $J(\rho, \varphi, z) = \rho $ 
+    \item Sférické souřadnice $x = \rho\cos\varphi\cos\theta$, $y=\rho\sin\varphi\sin\theta$ a $z=\rho\cos\theta$ pak $J(\rho, \varphi, \theta) = \rho^2\sin\theta. $ 
+\end{itemize}
+
+\section{Křivky}
+
+\paragraph{Rovinná křivka} pokud existuje funkce $\F(t) = [\varphi(t), \psi(t)]$ spojitá pro $t\in\left<a,b\right>$. Pak množina $\Gamma\lbrace \F(t): t\in<a,b> \rbrace \subseteq \R^2 $ je rovinnou křivkou.
+
+\begin{description}
+    \item[Vlastnosti křivek] Křivky mohou mít Vlastnosti
+    \begin{description}
+        \item[Jednoduchá] -- nikde se neprotíná, $\F$ je prostá
+        \item[Jednoduchá uzavřená] -- jednoduchá a uzavřená
+        \item[Třídy $C^1$] pokud funkce $\varphi$ a $\psi$ mají spojité první derivace na $\left<a,b\right>$
+        \item[Jednoduchá hladká] --  je-li jednoduchá, třídy $C_1$ a také $\varphi^2 + \psi > 0$ 
+        \item[Jednoduchá uzavřená hladká] --  jednoduchá hladká a $\varphi_{+}'(a)=\varphi_{-}'(b)$, $\psi_{+}'(a)=\psi_{-}'(b)$
+        \item[Jednoduchá po částech hladká] --  spojení jednoduchých hladkých křivek spojených koncovými body
+    \end{description}
+\end{description}
+
+\section{Křivkový integrál}
+
+\paragraph{První druh} \uv{běžný integrál} pokud je $\Gamma$ jednoduchá hladká křivka parametrizovaná $\F$ a $f$ -- skalární pole
+$$ \int_\Gamma f(x,y)\dif s = \int_a^b f(\varphi(t), \psi(t))\sqrt{(\varphi'(t))^2 + (\psi'(t))^2} \dif t $$
+
+\paragraph{Druhý druh} \emph{skalární součin} pokud je $\Gamma$ orientovaná jednoduchá hladká křivka parametrizovaná $\F$ a $\vec{f}(x,y)=(P(x,y),\,Q(x,y))$ -- vektorové pole
+$$ \int_\Gamma \vec{f}(x,y) \cdot \dif \vec s = \int_\Gamma P(x,y)\dif x + Q(x,y)\dif y = \pm \int_a^b \left[P(\varphi(t), \psi(t))\varphi'(t) + Q(\varphi(t), \psi(t))\psi'(t)\right]\dif t $$
+$\pm$ podle orientace křivky
+
+\paragraph{Greenova věta} Pro normální množinuvzhledem k ose $x$ s hranicí $\partial M$ funkce $\varphi$ a $\psi$ a vektorové pole $\vec{f}(x,y)=(P(x,y),\,Q(x,y))$ je spojité na $M$ a má spojité derivace, pak 
+$$\iint_M\left(\pard{Q}{x}-\pard{P}{y}\right)\dif x \dif y = \oint_{\partial M} (P,Q)\cdot \dif \vec{s}$$
+
+\section{Nezávislost na integrační cestě = konzervativní pole}
+
+$\vec{f}= (P,Q)$ je vektorové pole a $\Omega$ oblast v $\R^2$ a $A, B$ body v oblasti a $\Gamma$ po částech hladká křivka ležící v oblasti. Pokud hodnota integrálu $\int_\Gamma \vec{f}\cdot \dif \vec s$ je stejná pro každou křivku 
+
+\paragraph{Pfaffova forma} pokud $(P,Q)$ nezávisí na integrační cestě, pak výraz $P(x,y) \dif x + Q(x,y) \dif y$ \ pak potenciálem je:
+$$\Phi(x,y) = \int_{[x_A,y_A]}^{[x,y]}(P,Q)\cdot \dif \vec{s}$$
+Bod A je konstantní a koncový bod je proměnlivý.
+
+Pokud je $f$ konzervativní vektorové pole a $\Phi$ jeho potenciál pak 
+$$\int_A^B P\dif x + Q \dif y = \Phi(B)-\Phi(A)$$
+
+Podmínka pro konzervativní pole $f$
+$$ \vec\nabla \times\vec f = 0 $$
+
+\section{Plochy v prostoru}
 
 \end{document}
