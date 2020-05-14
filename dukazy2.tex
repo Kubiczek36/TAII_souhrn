@@ -15,6 +15,7 @@
 \usepackage{hyperref}
 \usepackage[left=2.5cm, right=1.5cm, top=1.5cm, bottom=2cm]{geometry}
 \usepackage[czech]{babel} %
+\usepackage{esint}
 \newcommand{\cotg}{\mathrm{cotg}}
 \newcommand{\cotgh}{\mathrm{cotgh}}
 \newcommand{\tg}{\mathrm{tg}}
@@ -464,5 +465,51 @@ Podmínka pro konzervativní pole $f$
 $$ \vec\nabla \times\vec f = 0 $$
 
 \section{Plochy v prostoru}
+
+Plocha je parametrizována 3-funkcí $\F : \R^2 \to \R^3$, $\F(u,v) = \varphi(u,v)+\psi(u,v)+ \chi(u,v)$
+
+Plocha má tečné vektory 
+$$ \vec t_u(u,v)=\left(\pard{\varphi(u,v)}{u}, \pard{\psi(u,v)}{u}, \pard{\chi(u,v)}{u}\right)\quad \vec t_v(u,v)=\left(\pard{\varphi(u,v)}{v}, \pard{\psi(u,v)}{v}, \pard{\chi(u,v)}{v}\right) $$
+Pokud jsou lin nezávislé pak plochu nazýváme hladkou.
+
+Plocha je po částech hladká pokud \begin{itemize}
+    \item se skládá z $n$ ploch
+    \item průnik dvou ploch je součástí průniku jejich hranic, a je to po částech hladká křivka
+    \item průnik tří různých ploch je ednobodová nebo prázdná množina
+    \item každá plocha \emph{sousedí s}, je přilehlá k, jiné ploše
+\end{itemize}
+
+\paragraph{Okraj $\partial S$} = sjednocení všech částí hranice plochy. Křivka $\Gamma $ je částí okraje tak, že neprázdný průnik křivky $\Gamma$ s hranicí části plochy $S_i$ je součástí hranice plochy.
+
+plocha je uzavřená pokud nemá okraj
+
+\section{Plošný integrál}
+
+\paragraph{1. druh} $\F = [\varphi, \psi, \chi]$ - parametrizace plochy $\mathscr{S}$, $f$ - skalární pole $\R^3 \to \R $
+$$ \iint_\mathscr{S} f(x,y,z)\dif S = \iint_{S_{uv}} \underbrace{f(\varphi(u,v), \psi(u,v), \chi(u,v))}_{\text{hodnota funkce na ploše,}\linebreak \text{ popsané pomocí parametrizace}} \underbrace{\left| \vec t_u (u,v) \times \vec t_v (u,v) \right|}_{\text{obsah plošky}}\dif u \dif v $$
+
+\emph{Problém se převede na tak, aby byl parametrizovaný pomocí plochy parametrizované $\F$}
+
+\paragraph{2. druh} $\F = [\varphi, \psi, \chi]$ - parametrizace plochy $\mathscr{S}$, $\vec f = [P,Q,R]$ - vektorové pole $\R^3 \to \R^3 $
+
+$$ \iint_\mathscr{S} f(x,y,z)\cdot \dif \vec S = \iint_{S_{uv}} \underbrace{f(\varphi(u,v), \psi(u,v), \chi(u,v))}_{\text{hodnota funkce na ploše,}\linebreak \text{ popsané pomocí parametrizace}} \cdot \underbrace{\left( \vec t_u (u,v) \times \vec t_v (u,v) \right)}_{\text{obsah plošky}}\dif u \dif v $$
+
+\paragraph{Gaußova-Ostrogratského věta} $M$ -- normální množina v $\R^3$, $\partial M$ -- po částech hladká orientovaná plocha (orientovaná ven), $\vec{f}$ -- vektorové pole, $\vec{\nabla}\cdot \vec{f}$ -- spojité
+$$\iiint_M \vec{\nabla}\cdot \vec{f} \dif x \dif y \dif z = \oiint_{\partial M} \vec{f}\cdot \dif \vec{S} $$
+
+\paragraph{Stokesova věta} $S$ -- hladká plocha, $\partial S$ pravotočivě orientovaný okraj plochy (prsty pravé ruky ve směru orientace znamenají, že palec ukazuje vektor normály). $\vec f$ - vektorové pole
+$$\iint_S (\vec{\nabla}\times \vec{f}) \cdot \dif\vec S = \oint_{\partial S} \vec{f}\cdot \dif \vec{s} $$
+
+\section*{Operátorové identity}
+
+$$  \vec{\nabla}\times( \vec\nabla {f}) = \vec 0 $$
+$$ \vec\nabla \cdot \vec{\nabla}\times \vec{f} = 0 $$
+$$  \vec{\nabla}\cdot( \vec\nabla {f}) = \Delta f \text{ -- Laplaceův operátor} $$
+
+-----
+$$ \int_0^{2} \int_{-x-1}^{2x+1}\int_{0}^{2z} \dif x \dif y \dif z $$
+
+$$\int_{0}^{\frac{\pi}{2}} \int_{0}^{\sqrt{2}} \int_{-r\cos\varphi}^{r(\sin\varphi+\cos\varphi)} zr^2 \dif z \dif r\dif \varphi $$
+
 
 \end{document}
